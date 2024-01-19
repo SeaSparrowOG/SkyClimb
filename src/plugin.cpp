@@ -471,6 +471,8 @@ int GetLedgePoint(RE::TESObjectREFR *vaultMarkerRef, RE::TESObjectREFR *medMarke
         toCameraAdjust = -80;
     }
 
+    if (!ledgeMarker) return -1;
+
     // adjust the EVG marker for correct positioning
     RE::NiPoint3 adjustedPos;
     adjustedPos.x = ledgePoint.x + cameraDirFlat.x * toCameraAdjust;
