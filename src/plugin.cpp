@@ -500,6 +500,10 @@ int UpdateParkourPoint(RE::StaticFunctionTag *, RE::TESObjectREFR *vaultMarkerRe
         return -1;
     }
 
+    //More checks
+    if (RE::PlayerCharacter::GetSingleton()->GetOccupiedFurniture()) return -1;
+    if (RE::UI::GetSingleton()->IsMenuOpen(RE::DialogueMenu::MENU_NAME)) return -1;
+
     int foundLedgeType = GetLedgePoint(vaultMarkerRef, medMarkerRef, highMarkerRef, indicatorRef, enableVaulting, enableLedges);
 
     if (useJumpKey) {
